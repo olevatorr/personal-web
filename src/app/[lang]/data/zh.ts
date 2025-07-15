@@ -6,7 +6,10 @@ export const zh = {
   },
   hero: {
     title: '前端',
-    titleTexts: ['開發者', '工程師', '激勵者'],
+    titleTexts: ['開發者', '工程師', '發想者'],
+    titleHover: '全端',
+    hoverSubtitle:
+      '哈囉，我是 Otis Chen。一位擁有豐富前端開發經驗的工程師，擅長打造高效、響應式、用戶友好的網站和應用程式。擅長使用 Next.js 和 Nuxt.js 進行 SSR/SSG，SEO 優化，Google Analytics 整合，以及性能調校。擁有豐富的程式碼拆分、懶加載、最佳實踐等經驗，能夠打造出高效、可維護的網站和應用程式。',
     subtitle: '哈囉，我是 Otis Chen',
     cta: '開始探索'
   },

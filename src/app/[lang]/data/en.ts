@@ -6,10 +6,13 @@ export const en = {
   },
   hero: {
     title: 'Frontend',
+    titleHover: 'Full Stack',
     titleTexts: ['Developer', 'Engineer', 'Inspirer'],
     subtitle:
       "Hello, I'm Otis Chen. A Frontend Developer with hands-on experience in throgh building hight-performance, responsive, and user-friendly web applications.",
-    cta: 'Start Exploring'
+    hoverSubtitle:
+      "Hello, I'm Otis Chen. A Frontend Developer with hands-on experience in building high-performance, responsive, and user-friendly web applications. Skilled in Next.js and Nuxt.js for SSR/SSG, SEO optimization, Google Analytics integration, and performance tuning. Experienced with code splitting, lazy loading, and best practices for scalable, maintainable frontend architecture.",
+    cta: 'Resume'
   },
   header: {
     navigation: {
