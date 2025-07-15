@@ -21,7 +21,7 @@
 
 body {
   overflow-x: hidden;
-  @apply bg-gradient-to-b from-[#fa0] to-[#171717];
+  @apply bg-black;
 }
 
 /* 隱藏原生滾動條 */

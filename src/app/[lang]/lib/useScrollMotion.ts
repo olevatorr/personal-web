@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { useMotionValue, useTransform, useScroll } from 'motion/react'
+import { useEffect } from 'react'
+import { useMotionValue, useTransform } from 'motion/react'
 import { useLenis } from './useLenis'
 
 export function useScrollMotion() {

@@ -1,4 +1,9 @@
 export const zh = {
+  meta: {
+    title: 'Otis Chen | 前端工程師',
+    description:
+      '哈囉，我是 Otis Chen。一位擁有豐富前端開發經驗的工程師，擅長打造高效、響應式、用戶友好的網站和應用程式。'
+  },
   hero: {
     title: '前端',
     titleTexts: ['開發者', '工程師', '激勵者'],

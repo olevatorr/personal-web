@@ -1,4 +1,9 @@
 export const en = {
+  meta: {
+    title: 'Otis Chen | Frontend Developer',
+    description:
+      "Hello, I'm Otis Chen. A Frontend Developer with hands-on experience in throgh building hight-performance, responsive, and user-friendly web applications."
+  },
   hero: {
     title: 'Frontend',
     titleTexts: ['Developer', 'Engineer', 'Inspirer'],
