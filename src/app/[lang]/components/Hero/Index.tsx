@@ -1,7 +1,6 @@
 'use client'
 
 import { motion, AnimatePresence } from 'motion/react'
-import { useParallax } from '@/app/[lang]/lib/useScrollMotion'
 import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
