@@ -11,7 +11,8 @@ export const zh = {
     hoverSubtitle:
       '哈囉，我是 Otis Chen。一位擁有豐富前端開發經驗的工程師，擅長打造高效、響應式、用戶友好的網站和應用程式。擅長使用 Next.js 和 Nuxt.js 進行 SSR/SSG，SEO 優化，Google Analytics 整合，以及性能調校。擁有豐富的程式碼拆分、懶加載、最佳實踐等經驗，能夠打造出高效、可維護的網站和應用程式。',
     subtitle: '哈囉，我是 Otis Chen',
-    cta: '開始探索'
+    cta: '開始探索',
+    const: ['最佳夥伴', '最佳輔助', '最佳開發者', '最佳戰友']
   },
   header: {
     navigation: {
@@ -59,5 +60,118 @@ export const zh = {
         }
       }
     }
+  },
+  skills: {
+    title: '技能',
+    categories: {
+      frontend: '前端技術',
+      backend: '後端技術',
+      other: '其他技術'
+    },
+    frontend: [
+      {
+        title: 'HTML',
+        icon: 'html'
+      },
+      {
+        title: 'CSS',
+        icon: 'css'
+      },
+      {
+        title: 'JavaScript',
+        icon: 'javascript',
+        highlight: 'primary' as const
+      },
+      {
+        title: 'Sass',
+        icon: 'sass'
+      },
+      {
+        title: 'Vue.js',
+        icon: 'vue',
+        highlight: 'primary' as const
+      },
+      {
+        title: 'Nuxt.js',
+        icon: 'nuxt',
+        highlight: 'primary' as const
+      },
+      {
+        title: 'React',
+        icon: 'react',
+        highlight: 'secondary' as const
+      },
+      {
+        title: 'Next.js',
+        icon: 'nextjs',
+        highlight: 'secondary' as const
+      },
+      {
+        title: 'Tailwind CSS',
+        icon: 'tailwind',
+        highlight: 'secondary' as const
+      },
+      {
+        title: 'TypeScript',
+        icon: 'typescript',
+        highlight: 'primary' as const
+      }
+    ],
+    backend: [
+      {
+        title: 'Node.js',
+        icon: 'nodejs'
+      },
+      {
+        title: 'Express',
+        icon: 'express'
+      },
+      {
+        title: 'MySQL',
+        icon: 'mysql'
+      },
+      {
+        title: 'PHP',
+        icon: 'php'
+      },
+      {
+        title: 'Python',
+        icon: 'python'
+      },
+      {
+        title: 'Java',
+        icon: 'java'
+      }
+    ],
+    other: [
+      {
+        title: 'Git',
+        icon: 'git'
+      },
+      {
+        title: 'Docker',
+        icon: 'docker'
+      },
+      {
+        title: 'CI/CD',
+        icon: 'ci-cd'
+      },
+      {
+        title: 'Swagger',
+        icon: 'swagger'
+      },
+      {
+        title: 'Postman',
+        icon: 'postman'
+      },
+      {
+        title: 'Web accessibility',
+        icon: 'accessibility'
+      },
+      {
+        title: 'SEO',
+        icon: 'seo'
+      }
+    ]
   }
 }

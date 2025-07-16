@@ -1,31 +1,125 @@
 'use client'
 import { motion } from 'motion/react'
-import { useParallax, useParallaxScale } from '@/app/[lang]/lib/useScrollMotion'
 import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
+import TextPressure from '../Atom/TextPressure'
+import SkillCard from './SkillCard'
+
+interface Skill {
+  title: string
+  icon: string
+  highlight?: 'primary' | 'secondary' | boolean
+  level?: 'expert' | 'proficient' | 'familiar'
+}
+
+interface SkillSectionProps {
+  title: string
+  skills: Skill[]
+  delay: number
+}
+
+const SkillSection = ({ title, skills, delay }: SkillSectionProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
+      className="mb-12"
+    >
+      <h3 className="text-2xl font-bold text-white mb-6 text-center">
+        {title}
+      </h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {skills.map((skill, index) => (
+          <SkillCard
+            key={skill.title}
+            skill={skill}
+            index={index}
+            delay={delay}
+          />
+        ))}
+      </div>
+    </motion.div>
+  )
+}
 
 export default function Skills() {
   const params = useParams()
   const langParam = params.lang as string
   const lang = isValidLanguage(langParam) ? langParam : defaultLanguage
   const t = useTranslation(lang)
+
+  const skillsData = t.skills
+
   return (
-    <>
-      {' '}
-      <section className="min-h-[150vh] px-5 sm:px-10 flex items-center justify-center">
-        <motion.div
-          className="glass | text-center mx-auto px-8 py-15 w-full min-h-[80vh] rounded-xl"
-          style={{ y: useParallax(0.2), scale: useParallaxScale(0.5, 1) }}
-        >
-          <h2 className="text-5xl font-bold mb-8 text-white">
-            {t.homepage.sections.scrollExperience.title}
-          </h2>
-          <p className="text-xl text-white leading-relaxed">
-            {t.homepage.sections.scrollExperience.description}
-          </p>
-        </motion.div>
-      </section>
-    </>
+    <motion.section
+      className="relative"
+      initial={{ padding: '0px' }}
+      whileInView={{ padding: '0px 20px' }}
+    >
+      <motion.div
+        className="text-center mx-auto px-8 py-15 w-full rounded-xl relative overflow-hidden"
+        initial={{ padding: '0px' }}
+        whileInView={{ padding: '0px 20px' }}
+      >
+        {/* 背景裝飾 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-indigo-900/20 backdrop-blur-sm" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-xl" />
+          <div className="absolute top-32 right-20 w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-xl" />
+          <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full blur-xl" />
+          <div className="absolute bottom-32 right-1/4 w-18 h-18 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full blur-xl" />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10 py-20">
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-white mb-12"
+          >
+            {skillsData.title}
+          </motion.h2>
+
+          <div className="space-y-16">
+            <SkillSection
+              title={skillsData.categories.frontend}
+              skills={skillsData.frontend}
+              delay={0.2}
+            />
+
+            <SkillSection
+              title={skillsData.categories.backend}
+              skills={skillsData.backend}
+              delay={0.4}
+            />
+
+            <SkillSection
+              title={skillsData.categories.other}
+              skills={skillsData.other}
+              delay={0.6}
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div className="">
+        <TextPressure
+          text="Skills"
+          flex={true}
+          alpha={true}
+          stroke={false}
+          width={true}
+          weight={true}
+          italic={true}
+          textColor="#ffffff"
+          strokeColor="#ff0000"
+          minFontSize={36}
+        />
+      </motion.div>
+    </motion.section>
   )
 }

@@ -99,7 +99,7 @@ export default function CustomScrollBar() {
         />
 
         <motion.div
-          className="absolute left-0 w-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full shadow-lg"
+          className="absolute left-0 w-full bg-blue-500 rounded-full shadow-lg"
           style={{ 
             height: indicatorHeight,
             opacity: opacity
