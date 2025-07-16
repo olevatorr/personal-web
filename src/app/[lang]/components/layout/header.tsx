@@ -27,7 +27,7 @@ export default function Header() {
 
           {/* 選單按鈕 */}
           <button
-            className="flex flex-col items-center justify-center cursor-pointer hover:opacity-70 transition-opacity duration-300"
+            className="flex flex-col items-center justify-center cursor-pointer hover:opacity-70 transition-opacity duration-300 group"
             aria-label={t.header.ariaLabel}
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -43,9 +43,9 @@ export default function Header() {
               />
               <span
                 className={cn(
-                  'block absolute w-7 h-px bg-white rounded transition-all duration-300',
+                  'block absolute w-7 h-px group-hover:-rotate-10 bg-white rounded transition-all duration-300',
                   isOpen
-                    ? '-rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+                    ? '!-rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
                     : 'rotate-0 top-[62%] left-1/2 -translate-x-1/2'
                 )}
               />

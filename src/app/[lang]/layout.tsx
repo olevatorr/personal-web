@@ -42,7 +42,7 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body
-        className={`${jetBrainsMono.variable} ${huninnSans.variable} antialiased *:font-mix `}
+        className={`${jetBrainsMono.variable} ${huninnSans.variable} antialiased *:font-mono`}
       >
         <LenisProvider>
           <Header />
