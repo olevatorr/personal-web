@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { type Language } from '@/app/[lang]/lib/i18n'
 import Skills from '@/app/[lang]/components/Skills/Index'
+import Experience from '@/app/[lang]/components/Experience/Index'
 import Aurora from '@/app/[lang]/components/AuroraBg'
 
 export default function HomePage() {
@@ -27,6 +28,8 @@ export default function HomePage() {
       <Hero />
 
       <Skills />
+
+      <Experience />
 
       <section className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="container mx-auto px-4">

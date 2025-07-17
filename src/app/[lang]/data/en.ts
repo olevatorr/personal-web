@@ -142,6 +142,67 @@ export const en = {
       }
     ]
   },
+  experiences: {
+    title: 'Experiences',
+    items: [
+      {
+        title: 'Frontend Developer',
+        company: 'Company Name',
+        date: '2020 - Present',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: {
+          summary:
+            'Responsible for developing and maintaining frontend applications using modern web technologies.',
+          details: [
+            {
+              title: 'Frontend Development',
+              list: [
+                'Developed responsive web applications using React and Next.js',
+                'Optimized page performance and enhanced user experience',
+                'Collaborated with backend teams to implement complete features'
+              ]
+            },
+            {
+              title: 'Technical Implementation',
+              list: [
+                'Implemented responsive web design supporting various devices',
+                'Ensured code quality using TypeScript and best practices',
+                'Participated in code reviews and maintained coding standards'
+              ]
+            }
+          ]
+        }
+      },
+      {
+        title: 'Frontend Developer',
+        company: 'Company Name',
+        date: '2020 - Present',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: {
+          summary:
+            'Responsible for developing and maintaining frontend applications using modern web technologies.',
+          details: [
+            {
+              title: 'Frontend Development',
+              list: [
+                'Developed responsive web applications using React and Next.js',
+                'Optimized page performance and enhanced user experience',
+                'Collaborated with backend teams to implement complete features'
+              ]
+            },
+            {
+              title: 'Technical Implementation',
+              list: [
+                'Implemented responsive web design supporting various devices',
+                'Ensured code quality using TypeScript and best practices',
+                'Participated in code reviews and maintained coding standards'
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
   homepage: {
     sections: {
       scrollExperience: {
