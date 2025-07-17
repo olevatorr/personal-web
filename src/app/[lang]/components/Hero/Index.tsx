@@ -118,7 +118,7 @@ export default function Hero() {
         animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-6xl font-bold mb-4 flex items-center gap-5 justify-start flex-wrap">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 flex items-center gap-5 justify-start flex-wrap">
           <motion.span
             whileHover={{ scale: 1.05, origin: 'center', rotate: -3 }}
             transition={{ type: 'spring', stiffness: 300 }}
@@ -139,7 +139,7 @@ export default function Hero() {
         </h1>
         <motion.div
           className={cn(
-            'text-xl mb-8 text-gray-300 rounded-lg',
+            'text-base md:text-lg lg:text-xl mb-8 text-gray-300 rounded-lg',
             hoverItem !== 'subtitle' && 'w-full'
           )}
           initial={{
@@ -178,12 +178,12 @@ export default function Hero() {
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(5px)' }}
               transition={{
-                duration: 0.3,
+                duration: 0.2,
                 ease: 'easeInOut'
               }}
             >
               {hoverItem === 'subtitle' ? (
-                <span className="text-xl mb-8 text-gray-300">
+                <span className="mb-8 text-gray-300">
                   {t.hero.hoverSubtitle}
                 </span>
               ) : (
@@ -207,7 +207,7 @@ export default function Hero() {
       >
         {/* Coding-style background: angle brackets, code block, and cursor */}
         <motion.div
-          className="absolute top-24 left-24 flex items-center space-x-2"
+          className="absolute top-1/2 right-1/5 flex items-center space-x-2"
           animate={{
             y: [0, -8, 0],
             rotate: [0, 2, -2, 0]
@@ -278,7 +278,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-24 right-24 flex items-center"
+          className="absolute bottom-10 right-10 lg:right-24 flex items-center"
           animate={{
             x: [0, 10, 0],
             y: [0, -5, 0]
@@ -290,23 +290,23 @@ export default function Hero() {
         >
           {/* const 元素 */}
           <motion.span
-            className="bg-white/80 rounded px-3 py-1 font-mono text-base text-black shadow select-none"
+            className="rounded px-3 py-1 font-mono text-base text-black shadow select-none"
             animate={{
               scale: [1, 1.05, 1],
-              backgroundColor: [
-                'rgba(255, 255, 255, 0.8)',
-                'rgba(59, 130, 246, 0.9)',
-                'rgba(255, 255, 255, 0.8)'
-              ],
+              // backgroundColor: [
+              //   'rgba(255, 255, 255, 0.8)',
+              //   'rgba(59, 130, 246, 0.9)',
+              //   'rgba(255, 255, 255, 0.8)'
+              // ],
               color: [
-                'rgba(0, 0, 0, 1)',
+                'rgba(255, 255, 255, 0.5)',
                 'rgba(255, 255, 255, 1)',
-                'rgba(0, 0, 0, 1)'
+                'rgba(255, 255, 255, 0.5)'
               ],
-              boxShadow: [
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                '0 8px 15px rgba(59, 130, 246, 0.6), 0 0 25px rgba(59, 130, 246, 0.8)',
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
+              textShadow: [
+                'rgba(255, 255, 255, 0.8) 1px 0 10px',
+                'rgba(255, 255, 255, 0.8) 2px 0 10px',
+                'rgba(255, 255, 255, 0.8) 1px 0 10px'
               ]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -321,17 +321,17 @@ export default function Hero() {
               scale: [1, 1.08, 1],
               backgroundColor: [
                 'rgba(255, 255, 255, 0.75)',
-                'rgba(34, 197, 94, 0.8)',
+                'rgba(43, 127, 255, 0.8)',
                 'rgba(255, 255, 255, 0.75)'
               ],
               color: [
-                'rgba(21, 128, 61, 1)',
+                'rgba(43, 127, 255, 1)',
                 'rgba(255, 255, 255, 1)',
-                'rgba(21, 128, 61, 1)'
+                'rgba(43, 127, 255, 1)'
               ],
               boxShadow: [
                 '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.4)',
-                '0 8px 15px rgba(34, 197, 94, 0.6), 0 0 25px rgba(34, 197, 94, 0.8)',
+                '0 8px 15px rgba(43, 127, 255, 0.6), 0 0 25px rgba(43, 127, 255, 0.8)',
                 '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.4)'
               ]
             }}
@@ -347,24 +347,14 @@ export default function Hero() {
 
           {/* = 元素 */}
           <motion.span
-            className="ml-2 bg-white/70 rounded px-2 py-1 font-mono text-base text-orange-700 shadow select-none"
+            className="ml-2 rounded px-2 py-1 font-mono text-base text-orange-700 shadow select-none"
             animate={{
               scale: [1, 1.12, 1],
-              backgroundColor: [
-                'rgba(255, 255, 255, 0.7)',
-                'rgba(249, 115, 22, 0.8)',
-                'rgba(255, 255, 255, 0.7)'
-              ],
               color: [
                 'rgba(194, 65, 12, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(194, 65, 12, 1)'
               ],
-              boxShadow: [
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(249, 115, 22, 0.4)',
-                '0 8px 15px rgba(249, 115, 22, 0.6), 0 0 25px rgba(249, 115, 22, 0.8)',
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(249, 115, 22, 0.4)'
-              ]
             }}
             transition={{
               duration: 3,
@@ -426,7 +416,7 @@ export default function Hero() {
           />
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           className="absolute top-3/4 left-1/3 -translate-y-1/2 flex items-center"
           animate={{
             rotate: [0, 3, -3, 0],
@@ -623,7 +613,7 @@ export default function Hero() {
           >
             {']'}
           </motion.span>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </motion.section>
   )

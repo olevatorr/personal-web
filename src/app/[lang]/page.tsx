@@ -17,7 +17,7 @@ export default function HomePage() {
     <main className="overflow-hidden relative space-y-20">
       <div className="absolute inset-0 h-[500px]">
         <Aurora
-          colorStops={['#3A29FF', '#FF94B4', '#FF3232']}
+          colorStops={['#64113F', '#34D1BF', '#2B7FFF']}
           blend={0.5}
           amplitude={1.0}
           speed={0.5}
