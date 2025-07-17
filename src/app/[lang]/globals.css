@@ -24,6 +24,11 @@ body {
   @apply bg-black;
 }
 
+::selection {
+  background: #2B7FFF;
+  color: #fff;
+}
+
 /* 隱藏原生滾動條 */
 ::-webkit-scrollbar {
   display: none;

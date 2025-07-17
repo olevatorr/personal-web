@@ -47,7 +47,8 @@ export const en = {
       },
       {
         title: 'Sass',
-        icon: 'sass'
+        icon: 'sass',
+        highlight: 'secondary' as const
       },
       {
         title: 'Vue.js',
@@ -72,7 +73,7 @@ export const en = {
       {
         title: 'Tailwind CSS',
         icon: 'tailwind',
-        highlight: 'secondary' as const
+        highlight: 'primary' as const
       },
       {
         title: 'TypeScript',

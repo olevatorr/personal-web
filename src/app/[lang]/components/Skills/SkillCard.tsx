@@ -38,7 +38,7 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
       }
     } else {
       return {
-        coreSkill: 'Core Skill',
+        coreSkill: 'Core',
         proficientSkill: 'Proficient'
       }
     }
@@ -66,12 +66,10 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
   const getAnimationProps = () => {
     if (isHighlighted) {
       return {
-        initial: { opacity: 0, scale: 0.8, y: 20 },
-        whileInView: { opacity: 1, scale: [1.15, 1], y: 0 },
+        initial: { opacity: 0, scale: 0.8 },
+        whileInView: { opacity: 1, scale: 1 },
         transition: {
           duration: 0.6,
-          type: 'spring' as const,
-          bounce: 0.4,
           delay: delay + index * 0.1
         }
       }
@@ -79,12 +77,10 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
 
     if (isSecondaryHighlight) {
       return {
-        initial: { opacity: 0, scale: 0.8, y: 15 },
-        whileInView: { opacity: 1, scale: [1.1, 1], y: 0 },
+        initial: { opacity: 0, scale: 0.8 },
+        whileInView: { opacity: 1, scale: 1 },
         transition: {
           duration: 0.5,
-          type: 'spring' as const,
-          bounce: 0.3,
           delay: delay + index * 0.1
         }
       }
@@ -92,10 +88,9 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
 
     return {
       initial: { opacity: 0, scale: 0.8 },
-      whileInView: { opacity: 1, scale: [1.05, 1] },
+      whileInView: { opacity: 1, scale: 1 },
       transition: {
         duration: 0.4,
-        type: 'spring' as const,
         delay: delay + index * 0.1
       }
     }
@@ -144,39 +139,23 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
     >
       {/* 重要程度標籤 */}
       {getImportanceLabel() && (
-        <div className="absolute -top-2 -right-2 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium text-white border border-white/30 z-10">
+        <div className="absolute top-2 right-2 bg-white/20 backdrop-blur-sm rounded-full px-2 py-px text-xs font-medium text-white border border-white/30 z-10">
           {getImportanceLabel()}
         </div>
       )}
 
       {/* 角落裝飾 */}
-      {isHighlighted && (
+      {/* {isHighlighted && (
         <div className="absolute top-3 right-3 w-2 h-2 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full animate-pulse"></div>
-      )}
+      )} */}
 
-      <div className="flex flex-col items-center gap-3 h-full">
+      <div className="flex flex-col items-center justify-between gap-3 h-full">
         <div
           className={`flex-shrink-0 ${getContainerSize()} flex items-center justify-center relative`}
         >
           <IconComponent
             className={`${getIconSize()} text-white transition-all duration-300`}
           />
-
-          {/* 重要程度邊框效果 */}
-          {isHighlighted && (
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-white/20"
-              animate={{
-                scale: isHovered ? [1, 1.1, 1] : 1,
-                opacity: isHovered ? [0.3, 0.6, 0.3] : 0.3
-              }}
-              transition={{
-                duration: 2,
-                repeat: isHovered ? Infinity : 0,
-                ease: 'easeInOut'
-              }}
-            />
-          )}
         </div>
 
         <div className="flex flex-col items-center gap-2">
