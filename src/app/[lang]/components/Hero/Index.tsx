@@ -32,7 +32,7 @@ export default function Hero() {
   const lang = isValidLanguage(langParam) ? langParam : defaultLanguage
   const t = useTranslation(lang)
   const [hoverItem, sethoverItem] = useState<string | null>(null)
-  const [showBackend, setShowBackend] = useState(false)
+  // const [showBackend, setShowBackend] = useState(false)
   const [typewriterText, setTypewriterText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -91,14 +91,14 @@ export default function Hero() {
     }
   }, [typewriterText, currentIndex, isDeleting, t.hero.const])
 
-  // Backend 元素顯示
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowBackend(true)
-    }, 3000)
+  // // Backend 元素顯示
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowBackend(true)
+  //   }, 3000)
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
 
   // 清理函數
   useEffect(() => {
