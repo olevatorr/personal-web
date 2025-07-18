@@ -110,7 +110,6 @@ export default function Hero() {
   }, [])
   return (
     <motion.section
-      id="hero"
       className="h-screen flex max-w-7xl mx-auto items-center justify-center relative px-5 sm:px-10"
     >
       <motion.div
