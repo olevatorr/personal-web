@@ -4,6 +4,7 @@ import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
 import { useState } from 'react'
+import Title from '@/app/[lang]/components/Atom/Title'
 
 interface ExperienceItemProps {
   experience: {
@@ -161,7 +162,7 @@ export default function Experience() {
 
   return (
     <motion.section
-      id="experience"
+      id={t.header.navigation[1]}
       className="relative"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -171,15 +172,7 @@ export default function Experience() {
       <motion.div className="text-center mx-auto px-8 py-15 w-full rounded-xl relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
           {/* 標題 */}
-          <motion.h2
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-white mb-16"
-          >
-            {experienceData.title}
-          </motion.h2>
+          <Title title={experienceData.title} />
 
           {/* 時間線容器 */}
           <div className="relative">

@@ -23,12 +23,23 @@ import {
   SiSwagger,
   SiPostman,
   SiGithubactions,
-  SiGoogleanalytics
+  SiGoogleanalytics,
+  SiGreensock,
+  SiThreedotjs,
+  SiSwiper,
+  SiWordpress,
+  SiNginx,
+  SiGitlab,
+  SiGoogletagmanager,
+  SiJquery
 } from 'react-icons/si'
 
 import { FaUniversalAccess } from 'react-icons/fa6'
-import { TbSeo } from "react-icons/tb";
-
+import { TbSeo } from 'react-icons/tb'
+import { MdGridView } from 'react-icons/md'
+import { RiLayoutRowFill } from 'react-icons/ri'
+import { FaCube } from 'react-icons/fa'
+import { BsFileEarmarkCode } from 'react-icons/bs'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -60,7 +71,19 @@ export const getSkillIcon = (iconName: string) => {
     postman: SiPostman,
     accessibility: FaUniversalAccess,
     seo: TbSeo,
-    'google-analytics': SiGoogleanalytics
+    'google-analytics': SiGoogleanalytics,
+    'css-grid': MdGridView,
+    flexbox: RiLayoutRowFill,
+    gsap: SiGreensock,
+    threejs: SiThreedotjs,
+    spline: FaCube,
+    swiper: SiSwiper,
+    wordpress: SiWordpress,
+    nginx: SiNginx,
+    gitlab: SiGitlab,
+    gtm: SiGoogletagmanager,
+    'json-ld': BsFileEarmarkCode,
+    jquery: SiJquery
   }
 
   return iconMap[iconName as keyof typeof iconMap] || SiReact

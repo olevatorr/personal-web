@@ -39,6 +39,45 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
+/* Modal 滾動條樣式 - 覆蓋全局設置 */
+.modal-scrollable {
+  -ms-overflow-style: auto !important; /* IE and Edge */
+  scrollbar-width: thin !important; /* Firefox */
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent !important; /* Firefox */
+  overscroll-behavior: contain !important;
+  scroll-behavior: smooth !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.modal-scrollable::-webkit-scrollbar {
+  display: block !important;
+  width: 6px !important;
+}
+
+.modal-scrollable::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3) !important;
+  border-radius: 3px !important;
+  transition: background 0.2s ease !important;
+}
+
+.modal-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5) !important;
+}
+
+/* 強制阻止 Lenis 處理 modal 內的滾動 */
+.modal-container {
+  z-index: 9999;
+}
+
+.modal-container * {
+  pointer-events: auto !important;
+}
+
 .font-mix {
   font-family: var(--font-mono), var(--font-sans);
 }

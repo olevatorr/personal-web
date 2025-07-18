@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
 import TextPressure from '../Atom/TextPressure'
 import SkillCard from './SkillCard'
+import Title from '@/app/[lang]/components/Atom/Title'
 
 interface Skill {
   title: string
@@ -55,7 +56,7 @@ export default function Skills() {
 
   return (
     <motion.section
-      id="skills"
+      id={t.header.navigation[0]}
       className="relative"
       initial={{ padding: '0px' }}
       whileInView={{ padding: '0px 20px' }}
@@ -75,41 +76,24 @@ export default function Skills() {
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10 py-20">
-          <motion.h2
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-white mb-12"
-          >
-            {skillsData.title}
-          </motion.h2>
+          <Title title={skillsData.title} />
 
           <div className="space-y-16">
-            <SkillSection
-              title={skillsData.categories.frontend}
-              skills={skillsData.frontend}
-              delay={0.2}
-            />
-
-            <SkillSection
-              title={skillsData.categories.backend}
-              skills={skillsData.backend}
-              delay={0.4}
-            />
-
-            <SkillSection
-              title={skillsData.categories.other}
-              skills={skillsData.other}
-              delay={0.6}
-            />
+            {skillsData.categories.map((category, index) => (
+              <SkillSection
+                key={category.title}
+                title={category.title}
+                skills={category.skills}
+                delay={0.2 + index * 0.1}
+              />
+            ))}
           </div>
         </div>
       </motion.div>
 
       <motion.div className="">
         <TextPressure
-          text="Skills"
+          text="Accelerate"
           flex={true}
           alpha={true}
           stroke={false}
