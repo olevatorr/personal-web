@@ -8,6 +8,30 @@ const nextConfig: NextConfig = {
         hostname: 'i.ibb.co',
         port: '',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'ibb.co',
+        port: '',
+        pathname: '/**'
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'otischen.site',
+        port: '',
+        pathname: '/**'
       }
     ]
   }

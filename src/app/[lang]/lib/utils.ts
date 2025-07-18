@@ -88,3 +88,17 @@ export const getSkillIcon = (iconName: string) => {
 
   return iconMap[iconName as keyof typeof iconMap] || SiReact
 }
+
+export const getPublicImage = (image: string) => {
+  if (image.startsWith('http')) {
+    return image
+  }
+
+  // 使用默認的本地開發 URL，如果環境變數未設定
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+
+  // 確保 image 路徑以 / 開頭
+  const imagePath = image.startsWith('/') ? image : `/${image}`
+
+  return `${baseUrl}${imagePath}`
+}

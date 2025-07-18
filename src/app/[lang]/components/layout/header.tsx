@@ -67,7 +67,7 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed top-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm z-40 min-w-[400px] w-[100vw] lg:w-[40vw] h-screen"
+            className="fixed top-0 right-0 bottom-0 bg-black/50 backdrop-blur-sm z-40 min-w-[400px] w-[100vw] lg:w-[40vw] h-dvh"
             initial={{
               x: '100%'
             }}

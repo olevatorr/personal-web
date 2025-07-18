@@ -109,7 +109,7 @@ export default function Contact() {
   return (
     <section
       id={t.header.navigation[3]}
-      className="relative min-h-screen py-20 px-4"
+      className="relative min-h-dvh py-20 px-4"
     >
       <div className="max-w-4xl mx-auto">
         <Title title={t.contact.title} subtitle={t.contact.subtitle} />
@@ -124,7 +124,7 @@ export default function Contact() {
         >
           <motion.form
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-6 relative"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -204,7 +204,7 @@ export default function Contact() {
 
             {status.type !== 'idle' && (
               <motion.div
-                className={`text-center p-4 rounded-lg ${
+                className={`text-center p-2 px-4 rounded-lg absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full ${
                   status.type === 'success'
                     ? 'bg-green-500/20 text-green-300'
                     : status.type === 'error'

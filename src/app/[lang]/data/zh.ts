@@ -352,12 +352,75 @@ export const zh = {
     },
     items: [
       {
+        id: 'fenc',
+        status: 1,
+        title: '遠東新世紀 官方網站',
+        subtitle: '大型企業官網 | 前端開發',
+        year: '2024',
+        coverImage: '/project/fenc.webp',
+        techStack: {
+          frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
+          animation: ['GSAP', 'Swiper'],
+          devops: ['Docker', 'Nginx', 'Gitlab'],
+          tools: ['Spline']
+        },
+        description:
+          '遠東新世紀官方網站，使用Nuxt3框架提升網站載入速度和使用者體驗，以及透過負責的動態路由實現可擴充的網站架構。',
+        highlights: ['3D互動體驗', '動態視覺效果', 'SEO優化'],
+        features: [
+          {
+            title: '3D動態視覺效果以及動態體驗',
+            description: '運用Swiper實現輪播效果、元素過渡效果和互動體驗，以及使用Spline實現3D動態視覺效果。',
+            icon: 'Zap',
+            technologies: ['Swiper', 'CSS3', 'Spline', 'Lenis']
+          },
+          {
+            title: '響應式設計',
+            description: '確保網站在所有裝置上呈現最佳視覺效果和使用體驗',
+            icon: 'Smartphone',
+            technologies: ['TailwindCSS', 'CSS Grid']
+          },
+          {
+            title: '效能優化',
+            description: '使用Nuxt-Image實現圖片優化，確保流暢的使用者體驗',
+            icon: 'Zap',
+            technologies: ['Nuxt-Image', 'Image Optimization']
+          },
+          {
+            title: '全站SEO',
+            description: '實施完整的搜尋引擎優化策略，提升品牌在線可見度',
+            icon: 'Search',
+            technologies: ['GTM', 'Meta Tags', 'Sitemap']
+          }
+        ],
+        results: {
+          metrics: [
+            { label: '頁面載入時間', value: '< 2.2s' },
+            { label: '動態流暢度', value: 'Great' },
+            { label: '響應式支援', value: '100%' }
+          ],
+          achievements: [
+            '完整的3D互動體驗',
+            '流暢的動畫效果',
+            '優異的SEO表現',
+            '複雜動態路由實現可擴充的網站架構'
+          ]
+        },
+        links: {
+          live: {
+            label: '遠東新世紀',
+            href: 'https://www.fenc.com.tw/'
+          }
+        },
+        order: 0
+      },
+      {
         id: 'unme-design',
         status: 1,
         title: '非我設計 Unme Design 官方網站',
-        subtitle: '企業官網 | 全端開發',
+        subtitle: '中型企業官網 | 全端開發',
         year: '2024',
-        coverImage: 'https://i.ibb.co/cX6LQVgX/og-img.jpg',
+        coverImage: '/project/unme.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP', 'Swiper'],
@@ -434,7 +497,7 @@ export const zh = {
         title: '勤誠興業 CHENBRO 官方網站',
         subtitle: '大型企業網站 | 團隊協作',
         year: '2024',
-        coverImage: 'https://i.ibb.co/2GxwB41/2025-04-01-11-21-39.png',
+        coverImage: '/project/chenbro.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP', 'Swiper'],
@@ -501,7 +564,7 @@ export const zh = {
         title: '幫推事務所 VentiVenti 官方網站',
         subtitle: 'SEO優化專案 | 全端開發',
         year: '2024',
-        coverImage: 'https://i.ibb.co/WNDVzH07/og-img.jpg',
+        coverImage: '/project/venti.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP'],
@@ -568,7 +631,7 @@ export const zh = {
         title: 'Blue Alert 藍色警戒',
         subtitle: '全端網頁應用程式 | 團隊領導',
         year: '2024',
-        coverImage: 'https://i.ibb.co/jzcSLkP/Blue-Alert.png',
+        coverImage: '/project/blue-alert.webp',
         techStack: {
           frontend: ['Vue3', 'Sass', 'Pinia', 'Bootstrap5'],
           animation: ['GSAP', 'D3.js', 'Chart.js'],
@@ -633,7 +696,7 @@ export const zh = {
         title: '寵物醫院商城',
         subtitle: '電商平台 | 原生JavaScript',
         year: '2024',
-        coverImage: 'https://i.ibb.co/mFjJKN5/broods.png',
+        coverImage: '/project/broods.webp',
         techStack: {
           frontend: ['JavaScript', 'CSS3', 'HTML5'],
           animation: ['AOS Animation'],

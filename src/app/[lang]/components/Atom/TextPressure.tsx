@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface TextPressureProps {
   text?: string
@@ -13,6 +13,7 @@ interface TextPressureProps {
   scale?: boolean
   textColor?: string
   strokeColor?: string
+  strokeWidth?: number
   className?: string
   minFontSize?: number
 }
@@ -30,6 +31,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
   scale = false,
   textColor = '#FFFFFF',
   strokeColor = '#FF0000',
+  strokeWidth = 2,
   className = '',
   minFontSize = 24
 }) => {
@@ -81,7 +83,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
     }
   }, [])
 
-  const setSize = useCallback(() => {
+  const setSize = () => {
     if (!containerRef.current || !titleRef.current) return
 
     const { width: containerW, height: containerH } =
@@ -104,13 +106,13 @@ const TextPressure: React.FC<TextPressureProps> = ({
         setLineHeight(yRatio)
       }
     })
-  }, [chars.length, minFontSize, scale])
+  }
 
   useEffect(() => {
     setSize()
     window.addEventListener('resize', setSize)
     return () => window.removeEventListener('resize', setSize)
-  }, [setSize, text])
+  }, [scale, text])
 
   useEffect(() => {
     let rafId: number
@@ -144,10 +146,10 @@ const TextPressure: React.FC<TextPressureProps> = ({
 
           const wdth = width ? Math.floor(getAttr(d, 5, 200)) : 100
           const wght = weight ? Math.floor(getAttr(d, 100, 900)) : 400
-          const italVal = italic ? getAttr(d, 0, 1).toFixed(2) : 0
-          const alphaVal = alpha ? getAttr(d, 0, 1).toFixed(2) : 1
+          const italVal = italic ? getAttr(d, 0, 1).toFixed(2) : '0'
+          const alphaVal = alpha ? getAttr(d, 0, 1).toFixed(2) : '1'
 
-          span.style.opacity = alphaVal.toString()
+          span.style.opacity = alphaVal
           span.style.fontVariationSettings = `'wght' ${wght}, 'wdth' ${wdth}, 'ital' ${italVal}`
         })
       }
@@ -159,23 +161,10 @@ const TextPressure: React.FC<TextPressureProps> = ({
     return () => cancelAnimationFrame(rafId)
   }, [width, weight, italic, alpha, chars.length])
 
-  const dynamicClassName = [
-    className,
-    flex ? 'custom-flex' : '',
-    stroke ? 'stroke' : ''
-  ]
-    .filter(Boolean)
-    .join(' ')
-
   return (
     <div
       ref={containerRef}
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100%',
-        background: 'transparent'
-      }}
+      className="relative w-full h-full overflow-hidden bg-transparent"
     >
       <style>{`
         @font-face {
@@ -183,12 +172,6 @@ const TextPressure: React.FC<TextPressureProps> = ({
           src: url('${fontUrl}');
           font-style: normal;
         }
-
-        .custom-flex {
-          display: flex;
-          justify-content: space-between;
-        }
-
         .stroke span {
           position: relative;
           color: ${textColor};
@@ -200,31 +183,26 @@ const TextPressure: React.FC<TextPressureProps> = ({
           top: 0;
           color: transparent;
           z-index: -1;
-          -webkit-text-stroke-width: 3px;
+          -webkit-text-stroke-width: ${strokeWidth}px;
           -webkit-text-stroke-color: ${strokeColor};
-        }
-
-        .text-pressure-title {
-          color: ${textColor};
         }
       `}</style>
 
-      <h1
+      <span
         ref={titleRef}
-        className={`text-pressure-title ${dynamicClassName}`}
+        className={`text-pressure-title ${className} ${
+          flex ? 'flex justify-between' : ''
+        } ${stroke ? 'stroke' : ''} uppercase text-center`}
         style={{
           fontFamily,
-          textTransform: 'uppercase',
           fontSize: fontSize,
           lineHeight,
           transform: `scale(1, ${scaleY})`,
           transformOrigin: 'center top',
           margin: 0,
-          textAlign: 'center',
-          userSelect: 'none',
-          whiteSpace: 'nowrap',
           fontWeight: 100,
-          width: '100%'
+          color: stroke ? undefined : textColor,
+          userSelect: 'none'
         }}
       >
         {chars.map((char, i) => (
@@ -236,15 +214,12 @@ const TextPressure: React.FC<TextPressureProps> = ({
               }
             }}
             data-char={char}
-            style={{
-              display: 'inline-block',
-              color: stroke ? undefined : textColor
-            }}
+            className="inline-block"
           >
             {char}
           </span>
         ))}
-      </h1>
+      </span>
     </div>
   )
 }
