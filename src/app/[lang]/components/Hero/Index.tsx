@@ -204,7 +204,10 @@ export default function Hero() {
 
       {/* Background Animation */}
       <motion.div
-        className="absolute inset-0 opacity-60 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 2 }}
       >
         {/* Coding-style background: angle brackets, code block, and cursor */}
         <motion.div

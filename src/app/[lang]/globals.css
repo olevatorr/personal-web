@@ -25,7 +25,7 @@ body {
 }
 
 ::selection {
-  background: #2B7FFF;
+  background: #2b7fff;
   color: #fff;
 }
 
@@ -114,7 +114,6 @@ html {
   white-space: pre;
 }
 
-
 /* glass */
 .glass {
   position: relative;
@@ -122,8 +121,9 @@ html {
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
 }
 
 .glass::after {
@@ -136,9 +136,257 @@ html {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2rem;
   backdrop-filter: blur(1px);
-  box-shadow: inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
-              inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
+  box-shadow:
+    inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
+    inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
   opacity: 0.6;
   z-index: -1;
   filter: blur(1px) drop-shadow(10px 4px 6px black) brightness(115%);
+}
+
+/* Experience Timeline Subtle Effects */
+.timeline-neon {
+  background: linear-gradient(
+    to bottom,
+    rgba(147, 51, 234, 0.8),
+    rgba(59, 130, 246, 0.8)
+  );
+  position: relative;
+  border-radius: 2px;
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+.timeline-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: -1px;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(147, 51, 234, 0.3),
+    rgba(59, 130, 246, 0.3)
+  );
+  border-radius: 2px;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.timeline-neon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.8), transparent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.timeline-glow {
+  background: linear-gradient(
+    45deg,
+    rgba(147, 51, 234, 0.6),
+    rgba(59, 130, 246, 0.6),
+    rgba(147, 51, 234, 0.6)
+  );
+  background-size: 200% 100%;
+  animation: gentle-flow 4s linear infinite;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+@keyframes subtle-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1.1);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes gentle-flow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+}
+
+/* Card Glass Effect */
+.card-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(147, 51, 234, 0.03),
+    rgba(59, 130, 246, 0.03),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glass:hover::before {
+  left: 100%;
+}
+
+.card-glass:hover::after {
+  opacity: 1;
+}
+
+.card-glass:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.08)
+  );
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Timeline Dot Subtle Effect */
+.timeline-dot {
+  position: relative;
+  animation: dot-gentle-pulse 4s ease-in-out infinite;
+}
+
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 51, 234, 0.2),
+    rgba(59, 130, 246, 0.2),
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: dot-glow 3s ease-in-out infinite alternate;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: dot-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes dot-gentle-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes dot-glow {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes dot-twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Animation Delays */
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.delay-2000 {
+  animation-delay: 2s;
 }
