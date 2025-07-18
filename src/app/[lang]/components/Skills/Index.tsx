@@ -55,6 +55,7 @@ export default function Skills() {
 
   return (
     <motion.section
+      id="skills"
       className="relative"
       initial={{ padding: '0px' }}
       whileInView={{ padding: '0px 20px' }}

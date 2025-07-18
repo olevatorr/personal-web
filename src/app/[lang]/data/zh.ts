@@ -173,5 +173,37 @@ export const zh = {
         icon: 'seo'
       }
     ]
+  },
+  experiences: {
+    title: '經驗',
+    items: [
+      {
+        title: '前端工程師',
+        company: '公司名稱',
+        date: '2020 - 至今',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: {
+          summary: '主要職責描述',
+          details: [
+            {
+              title: '詳細內容 1',
+              list: [
+                '負責前端頁面開發與維護，使用 React 和 Next.js 框架',
+                '優化頁面性能，提升用戶體驗',
+                '與後端團隊協作，實現完整的功能'
+              ]
+            },
+            {
+              title: '詳細內容 2',
+              list: [
+                '實現響應式網頁設計，支援各種設備',
+                '使用 TypeScript 確保程式碼品質',
+                '參與程式碼審核，維護程式碼規範'
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 }

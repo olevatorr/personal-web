@@ -142,49 +142,77 @@ export const en = {
       }
     ]
   },
-  homepage: {
-    sections: {
-      scrollExperience: {
-        title: 'Perfect Scroll Experience',
-        description:
-          "Lenis provides native-like smooth scrolling, combined with Motion's powerful animation system to create stunning user experiences. Whether it's parallax effects, scroll-triggered animations, or complex scroll interactions, everything can be easily implemented."
-      },
-      customScrollbar: {
-        title: 'Custom Scrollbar',
-        description:
-          'The custom scrollbar on the right provides complete scroll control functionality:',
-        features: [
-          'Click to quickly jump to any position',
-          'Drag to scroll the scrollbar',
-          'Real-time display of scroll progress percentage',
-          'Smooth animation effects'
-        ],
-        highlights: {
-          title: 'Key Features',
-          items: [
-            'Hide native scrollbar',
-            'Responsive design',
-            'Smooth animation effects'
+  experiences: {
+    title: 'Experiences',
+    items: [
+      {
+        title: 'Frontend Developer',
+        company: 'Company Name',
+        date: '2020 - Present',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: {
+          summary:
+            'Responsible for developing and maintaining frontend applications using modern web technologies.',
+          details: [
+            {
+              title: 'Frontend Development',
+              list: [
+                'Developed responsive web applications using React and Next.js',
+                'Optimized page performance and enhanced user experience',
+                'Collaborated with backend teams to implement complete features'
+              ]
+            },
+            {
+              title: 'Technical Implementation',
+              list: [
+                'Implemented responsive web design supporting various devices',
+                'Ensured code quality using TypeScript and best practices',
+                'Participated in code reviews and maintained coding standards'
+              ]
+            }
           ]
         }
       },
-      technicalFeatures: {
-        title: 'Technical Features',
-        lenis: {
-          title: 'Lenis',
-          description:
-            'Provides native-like smooth scrolling experience, supporting mouse wheel and touch operations'
-        },
-        motion: {
-          title: 'Motion',
-          description:
-            'Powerful animation system providing rich animation effects and interactive experiences'
-        },
-        react: {
-          title: 'React',
-          description: 'Using React Hooks and modern component design patterns'
+      {
+        title: 'Frontend Developer',
+        company: 'Company Name',
+        date: '2020 - Present',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: {
+          summary:
+            'Responsible for developing and maintaining frontend applications using modern web technologies.',
+          details: [
+            {
+              title: 'Frontend Development',
+              list: [
+                'Developed responsive web applications using React and Next.js',
+                'Optimized page performance and enhanced user experience',
+                'Collaborated with backend teams to implement complete features'
+              ]
+            },
+            {
+              title: 'Technical Implementation',
+              list: [
+                'Implemented responsive web design supporting various devices',
+                'Ensured code quality using TypeScript and best practices',
+                'Participated in code reviews and maintained coding standards'
+              ]
+            }
+          ]
         }
       }
-    }
+    ]
+  },
+  projects: {
+    title: 'Projects',
+    items: [
+      {
+        title: 'Project 1',
+        subtitle: 'Subtitle of project 1',
+        badge: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+        description: 'Description of project 1',
+        link: 'https://www.google.com'
+      }
+    ]
   }
 }

@@ -110,6 +110,7 @@ export default function Hero() {
   }, [])
   return (
     <motion.section
+      id="hero"
       className="h-screen flex max-w-7xl mx-auto items-center justify-center relative px-5 sm:px-10"
     >
       <motion.div
@@ -203,7 +204,10 @@ export default function Hero() {
 
       {/* Background Animation */}
       <motion.div
-        className="absolute inset-0 opacity-60 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 2 }}
       >
         {/* Coding-style background: angle brackets, code block, and cursor */}
         <motion.div
