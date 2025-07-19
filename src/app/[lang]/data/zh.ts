@@ -357,7 +357,7 @@ export const zh = {
         title: '遠東新世紀 官方網站',
         subtitle: '大型企業官網 | 前端開發',
         year: '2024',
-        coverImage: '/project/fenc.webp',
+        coverImage: '/Project/fenc.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP', 'Swiper'],
@@ -420,7 +420,7 @@ export const zh = {
         title: '非我設計 Unme Design 官方網站',
         subtitle: '中型企業官網 | 全端開發',
         year: '2024',
-        coverImage: '/project/unme.webp',
+        coverImage: '/Project/unme.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP', 'Swiper'],
@@ -497,7 +497,7 @@ export const zh = {
         title: '勤誠興業 CHENBRO 官方網站',
         subtitle: '大型企業網站 | 團隊協作',
         year: '2024',
-        coverImage: '/project/chenbro.webp',
+        coverImage: '/Project/chenbro.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP', 'Swiper'],
@@ -564,7 +564,7 @@ export const zh = {
         title: '幫推事務所 VentiVenti 官方網站',
         subtitle: 'SEO優化專案 | 全端開發',
         year: '2024',
-        coverImage: '/project/venti.webp',
+        coverImage: '/Project/venti.webp',
         techStack: {
           frontend: ['Nuxt3', 'Vue3', 'TailwindCSS'],
           animation: ['GSAP'],
@@ -631,7 +631,7 @@ export const zh = {
         title: 'Blue Alert 藍色警戒',
         subtitle: '全端網頁應用程式 | 團隊領導',
         year: '2024',
-        coverImage: '/project/blue-alert.webp',
+        coverImage: '/Project/blue-alert.webp',
         techStack: {
           frontend: ['Vue3', 'Sass', 'Pinia', 'Bootstrap5'],
           animation: ['GSAP', 'D3.js', 'Chart.js'],
@@ -696,7 +696,7 @@ export const zh = {
         title: '寵物醫院商城',
         subtitle: '電商平台 | 原生JavaScript',
         year: '2024',
-        coverImage: '/project/broods.webp',
+        coverImage: '/Project/broods.webp',
         techStack: {
           frontend: ['JavaScript', 'CSS3', 'HTML5'],
           animation: ['AOS Animation'],
