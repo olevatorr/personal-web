@@ -1,0 +1,18 @@
+# Robots.txt for Otis Chen Portfolio Website
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://otischen.dev/sitemap.xml
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 1
+
+# Disallow specific paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.next/
+
+# Allow specific important files
+Allow: /opengraph-image.png
+Allow: /favicon.ico

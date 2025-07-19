@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/app/[lang]/components/layout/header'
 import LenisProvider from '@/app/[lang]/components/LenisProvider'
 import CustomScrollBar from '@/app/[lang]/components/CustomScrollBar'
+import JsonLd from '@/app/[lang]/components/JsonLd'
 import './globals.css'
 import { JetBrains_Mono } from 'next/font/google'
 import { Chocolate_Classical_Sans } from 'next/font/google'
@@ -41,6 +42,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
+      <head>
+        <JsonLd />
+      </head>
       <body
         className={`${jetBrainsMono.variable} ${huninnSans.variable} antialiased *:font-mono`}
       >
