@@ -851,7 +851,7 @@ export const zh = {
         title: 'Blue Alert 藍色警戒',
         subtitle: '全端網頁應用程式 | 團隊領導',
         year: '2024',
-        coverImage: '/Project/blue-alert.webp',
+        coverImage: '/Project/Blue-Alert.webp',
         techStack: {
           frontend: ['Vue3', 'Sass', 'Bootstrap5'],
           library: ['GSAP', 'D3.js', 'Chart.js', 'Fullcalendar'],
