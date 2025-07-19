@@ -8,8 +8,13 @@ import {
   MdCode,
   MdSmartphone,
   MdStorage,
-  MdSearch
+  MdSearch,
+  MdAnimation
 } from 'react-icons/md'
+import { GrOptimize, GrUpgrade } from 'react-icons/gr'
+import { FiFileText } from 'react-icons/fi'
+import { VscDebugAltSmall } from 'react-icons/vsc'
+
 import { useEffect, useRef } from 'react'
 import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { useParams } from 'next/navigation'
@@ -22,6 +27,7 @@ interface ProjectModalProps {
   onClose: () => void
   project: {
     id: string
+    status: number
     title: string
     subtitle: string
     year: string
@@ -36,17 +42,14 @@ interface ProjectModalProps {
       devops: string[]
       tools: string[]
     }
-    features: Array<{
+    features: {
       title: string
       description: string
       icon: string
       technologies: string[]
-    }>
+    }[]
     results: {
-      metrics: Array<{
-        label: string
-        value: string
-      }>
+      metrics: { label: string; value: string }[]
       achievements: string[]
     }
     links: {
@@ -55,6 +58,7 @@ interface ProjectModalProps {
         href: string
       }
     }
+    order: number
   }
 }
 
@@ -63,7 +67,12 @@ const IconMap = {
   Code: MdCode,
   Smartphone: MdSmartphone,
   Database: MdStorage,
-  Search: MdSearch
+  Search: MdSearch,
+  Animation: MdAnimation,
+  Optimization: GrOptimize,
+  UX: GrUpgrade,
+  FileText: FiFileText,
+  Debug: VscDebugAltSmall
 }
 
 export default function ProjectModal({
@@ -164,7 +173,7 @@ export default function ProjectModal({
           >
             {/* Header */}
             <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50 p-4 lg:p-6 z-10">
-              <div className="flex flex-col md:flex-row items-start justify-between">
+              <div className="flex flex-col lg:flex-row items-start justify-between">
                 <div className="flex-1 mr-4 w-full">
                   <div className="flex items-center justify-between w-full">
                     <motion.h2
@@ -184,7 +193,7 @@ export default function ProjectModal({
                       <MdClose className="w-5 h-5" />
                     </motion.button>
                   </div>
-                  <div className="flex items-center lg:flex-col lg:items-start justify-between lg:justify-start">
+                  <div className="flex items-center lg:flex-col lg:items-start gap-10 lg:gap-0">
                     <p className="text-gray-400">{project.subtitle}</p>
                     <span className="text-blue-400 font-medium text-nowrap">
                       {project.year}
@@ -292,29 +301,30 @@ export default function ProjectModal({
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {Object.entries(project.techStack).map(
-                      ([category, techs], idx) => (
-                        <motion.div
-                          key={category}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 + idx * 0.1 }}
-                          className="bg-gray-800/50 p-4 rounded-lg border border-gray-700/50"
-                        >
-                          <h4 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">
-                            {category}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {techs.map((tech, techIdx) => (
-                              <span
-                                key={techIdx}
-                                className="px-2 py-1 bg-gray-700/50 text-gray-300 text-sm rounded border border-gray-600/50"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )
+                      ([category, techs], idx) =>
+                        techs.length > 0 && (
+                          <motion.div
+                            key={category}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.4 + idx * 0.1 }}
+                            className="bg-gray-800/50 p-4 rounded-lg border border-gray-700/50"
+                          >
+                            <h4 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">
+                              {category}
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {techs.map((tech, techIdx) => (
+                                <span
+                                  key={techIdx}
+                                  className="px-2 py-1 bg-gray-700/50 text-gray-300 text-sm rounded border border-gray-600/50"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )
                     )}
                   </div>
                 </motion.div>

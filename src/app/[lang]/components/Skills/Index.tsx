@@ -22,17 +22,17 @@ interface SkillSectionProps {
 
 const SkillSection = ({ title, skills, delay }: SkillSectionProps) => {
   return (
-    <div className="mb-12">
+    <div className="mb-12 grid grid-cols-1 lg:grid-cols-[150px_1fr] lg:gap-10">
       <motion.h3
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         viewport={{ once: true }}
-        className="text-2xl font-bold text-white mb-6 text-left lg:text-center"
+        className="text-2xl font-bold text-white mb-6 text-left"
       >
         {title}
       </motion.h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         {skills.map((skill, index) => (
           <SkillCard
             key={skill.title}

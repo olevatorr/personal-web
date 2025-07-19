@@ -72,14 +72,10 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
   }
 
   const getTextStyles = () => {
-    if (isHighlighted) return 'text-white font-bold text-base'
-    if (isSecondaryHighlight) return 'text-white font-semibold text-sm'
     return 'text-white font-medium text-sm'
   }
 
   const getContainerSize = () => {
-    if (isHighlighted) return 'w-14 h-14'
-    if (isSecondaryHighlight) return 'w-13 h-13'
     return 'w-12 h-12'
   }
 
@@ -120,7 +116,7 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
     >
       {/* 重要程度標籤 */}
       {getImportanceLabel() && (
-        <div className="absolute top-2 right-2 bg-white/30 rounded-full px-2 py-px text-xs font-medium text-white border border-white/40 z-10">
+        <div className="absolute top-2 right-2 bg-white/30 rounded-full px-2 py-px text-[10px] font-medium text-white border border-white/40 z-10">
           {getImportanceLabel()}
         </div>
       )}
