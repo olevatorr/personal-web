@@ -31,8 +31,8 @@ const ExperienceItem = ({ experience, index }: ExperienceItemProps) => {
   return (
     <motion.div
       className="relative flex items-start mb-12"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: index * 0.3 }}
       viewport={{ once: true }}
     >
@@ -40,11 +40,12 @@ const ExperienceItem = ({ experience, index }: ExperienceItemProps) => {
       <div className="flex flex-col items-center mr-8">
         {/* 時間點 */}
         <motion.div
-          className="w-4 h-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full border-4 border-white shadow-lg z-10 timeline-dot"
+          className="w-4 h-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full border-3 border-white shadow-lg z-10"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.4, delay: index * 0.3 + 0.2 }}
+          viewport={{ once: true }}
         />
       </div>
 

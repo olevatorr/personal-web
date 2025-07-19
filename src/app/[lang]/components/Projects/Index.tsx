@@ -82,9 +82,9 @@ export default function Projects() {
           {t.projects.items.map((project, index) => (
             <ProjectCard
               key={project.id}
-              project={project as Project}
+              project={project as unknown as Project}
               index={index}
-              onClick={() => handleProjectClick(project as Project)}
+              onClick={() => handleProjectClick(project as unknown as Project)}
             />
           ))}
         </div>

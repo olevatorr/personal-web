@@ -27,6 +27,7 @@ interface ProjectModalProps {
   onClose: () => void
   project: {
     id: string
+    status: number
     title: string
     subtitle: string
     year: string
@@ -35,23 +36,20 @@ interface ProjectModalProps {
     highlights: string[]
     techStack: {
       frontend: string[]
-      library: string[]
+      animation: string[]
       backend: string[]
       database: string[]
       devops: string[]
       tools: string[]
     }
-    features: Array<{
+    features: {
       title: string
       description: string
       icon: string
       technologies: string[]
-    }>
+    }[]
     results: {
-      metrics: Array<{
-        label: string
-        value: string
-      }>
+      metrics: { label: string; value: string }[]
       achievements: string[]
     }
     links: {
@@ -60,6 +58,7 @@ interface ProjectModalProps {
         href: string
       }
     }
+    order: number
   }
 }
 

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { type Language } from '@/app/[lang]/lib/i18n'
 import { motion } from 'framer-motion'
 import Title from '@/app/[lang]/components/Atom/Title'
+import { cn } from '@/app/[lang]/lib/utils'
 
 interface FormData {
   name: string
@@ -31,7 +32,7 @@ export default function Contact() {
     type: 'idle',
     message: ''
   })
-
+  const [animationComplete, setAnimationComplete] = useState(false)
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -191,11 +192,16 @@ export default function Contact() {
             <motion.button
               type="submit"
               disabled={status.type === 'sending'}
-              className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className={cn(
+                "w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+                animationComplete
+                  ? 'transition-all duration-300 '
+                  : ''
+              )}
               variants={itemVariants}
               transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onAnimationComplete={() => setAnimationComplete(true)}
             >
               {status.type === 'sending'
                 ? t.contact.form.sending
