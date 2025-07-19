@@ -851,7 +851,7 @@ export const en = {
         title: 'Blue Alert',
         subtitle: 'Full-Stack Web Application | Team Leadership',
         year: '2024',
-        coverImage: '/Project/blue-alert.webp',
+        coverImage: '/Project/Blue-Alert.webp',
         techStack: {
           frontend: ['Vue3', 'Sass', 'Bootstrap5'],
           library: ['GSAP', 'D3.js', 'Chart.js', 'Fullcalendar'],
