@@ -31,9 +31,14 @@ import {
   SiNginx,
   SiGitlab,
   SiGoogletagmanager,
-  SiJquery
+  SiJquery,
+  SiFigma,
+  SiP5Dotjs,
+  SiD3Dotjs,
+  SiUbuntu,
+  SiFramer
 } from 'react-icons/si'
-
+import { GrLanguage } from 'react-icons/gr'
 import { FaUniversalAccess } from 'react-icons/fa6'
 import { TbSeo } from 'react-icons/tb'
 import { MdGridView } from 'react-icons/md'
@@ -83,7 +88,13 @@ export const getSkillIcon = (iconName: string) => {
     gitlab: SiGitlab,
     gtm: SiGoogletagmanager,
     'json-ld': BsFileEarmarkCode,
-    jquery: SiJquery
+    jquery: SiJquery,
+    i18n: GrLanguage,
+    figma: SiFigma,
+    p5js: SiP5Dotjs,
+    d3js: SiD3Dotjs,
+    ubuntu: SiUbuntu,
+    motion: SiFramer
   }
 
   return iconMap[iconName as keyof typeof iconMap] || SiReact

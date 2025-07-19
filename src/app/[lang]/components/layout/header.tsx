@@ -9,7 +9,7 @@ import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { type Language } from '@/app/[lang]/lib/i18n'
 import LanguageSwitcher from '@/app/[lang]/components/LanguageSwitcher'
 import { useLenis } from '@/app/[lang]/lib/useLenis'
-import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaDownload, FaEnvelope } from 'react-icons/fa'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -144,6 +144,16 @@ export default function Header() {
                   className="group flex items-center gap-3 px-2 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg transition-all duration-200 text-sm"
                 >
                   <FaLinkedin className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
+                </Link>
+
+                <Link
+                  href="mailto:otis.coding@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="group flex items-center gap-3 px-2 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg transition-all duration-200 text-sm"
+                >
+                  <FaEnvelope className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
                 </Link>
 
                 <Link

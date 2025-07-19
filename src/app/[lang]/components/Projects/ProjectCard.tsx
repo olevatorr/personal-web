@@ -73,7 +73,7 @@ export default function ProjectCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div
-        className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden h-full hover:border-blue-500/50 transition-all duration-300"
+        className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl overflow-hidden h-full hover:border-blue-500/50 transition-all duration-300 flex flex-col"
         whileHover={{ scale: 1.02, y: -5 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
@@ -120,7 +120,7 @@ export default function ProjectCard({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-6 flex flex-col grow">
           {/* Header */}
           <div className="mb-4">
             <motion.h3
@@ -174,7 +174,7 @@ export default function ProjectCard({
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-end justify-between grow">
             <motion.button
               className="text-sm text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1"
               whileHover={{ x: 5 }}
