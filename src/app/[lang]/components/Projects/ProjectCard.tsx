@@ -8,6 +8,7 @@ import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { IoIosAddCircle, IoIosAddCircleOutline } from 'react-icons/io'
 import { FaLink } from 'react-icons/fa6'
+import { getPublicImage } from '@/app/[lang]/lib/utils'
 
 import Image from 'next/image'
 
@@ -83,7 +84,7 @@ export default function ProjectCard({
         >
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent z-10" />
           <Image
-            src={project.coverImage}
+            src={getPublicImage(project.coverImage)}
             alt={project.title}
             fill
             className={`object-cover transition-all duration-700 ${

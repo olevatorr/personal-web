@@ -22,16 +22,16 @@ interface SkillSectionProps {
 
 const SkillSection = ({ title, skills, delay }: SkillSectionProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true }}
-      className="mb-12"
-    >
-      <h3 className="text-2xl font-bold text-white mb-6 text-left lg:text-center">
+    <div className="mb-12">
+      <motion.h3
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        viewport={{ once: true }}
+        className="text-2xl font-bold text-white mb-6 text-left lg:text-center"
+      >
         {title}
-      </h3>
+      </motion.h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {skills.map((skill, index) => (
           <SkillCard
@@ -42,7 +42,7 @@ const SkillSection = ({ title, skills, delay }: SkillSectionProps) => {
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -58,14 +58,12 @@ export default function Skills() {
     <motion.section
       id={t.header.navigation[0]}
       className="relative"
-      initial={{ padding: '0px' }}
-      whileInView={{ padding: '0px 20px' }}
+      initial={{ padding: '0px 0px' }}
+      whileInView={{ padding: '0px 40px' }}
+      transition={{ duration: 0.6, delay: 0.5 }}
+      viewport={{ once: true }}
     >
-      <motion.div
-        className="text-center mx-auto px-8 py-15 w-full rounded-xl relative overflow-hidden"
-        initial={{ padding: '0px' }}
-        whileInView={{ padding: '0px 20px' }}
-      >
+      <div className="text-center mx-auto px-8 py-15 w-full rounded-xl relative overflow-hidden">
         {/* 背景裝飾 */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-indigo-900/20 backdrop-blur-sm" />
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -89,19 +87,18 @@ export default function Skills() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div className="">
         <TextPressure
           text="Accelerate"
           flex={true}
-          alpha={true}
+          alpha={false}
           stroke={false}
           width={true}
           weight={true}
           italic={true}
-          textColor="#ffffff"
-          strokeColor="#ff0000"
+          textColor="#ffffff30"
           minFontSize={36}
         />
       </motion.div>

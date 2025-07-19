@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
 import { useState } from 'react'
 import Title from '@/app/[lang]/components/Atom/Title'
+import { cn } from '@/app/[lang]/lib/utils'
 
 interface ExperienceItemProps {
   experience: {
@@ -25,6 +26,7 @@ interface ExperienceItemProps {
 
 const ExperienceItem = ({ experience, index }: ExperienceItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [animationComplete, setAnimationComplete] = useState(false)
 
   return (
     <motion.div
@@ -48,12 +50,17 @@ const ExperienceItem = ({ experience, index }: ExperienceItemProps) => {
 
       {/* 內容卡片 */}
       <motion.div
-        className="card-glass rounded-xl p-6 flex-1 border border-white/20 hover:border-white/40 transition-all duration-300 relative overflow-hidden"
+        className={cn(
+          'card-glass rounded-xl p-6 flex-1 border border-white/20 hover:border-white/40 relative overflow-hidden',
+          animationComplete
+            ? 'transition-[all_0.3s_cubic-bezier(0.4,0,0.2,1)]'
+            : ''
+        )}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.3 + 0.3 }}
         viewport={{ once: true }}
-        whileHover={{ scale: 1.02 }}
+        onAnimationComplete={() => setAnimationComplete(true)}
       >
         {/* 卡片背景特效 */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-white/[0.05] to-white/[0.02] backdrop-blur-sm"></div>
@@ -69,14 +76,18 @@ const ExperienceItem = ({ experience, index }: ExperienceItemProps) => {
 
         <div className="relative z-10">
           {/* 標題和公司 */}
-          <div className="mb-4 md:mb-10 flex md:items-center flex-col md:flex-row gap-2 justify-between">
+          <div className="mb-4 md:mb-10 flex md:items-center flex-col md:flex-row gap-2 md:gap-10 justify-between">
             <h3 className="text-xl font-bold text-white mb-2 text-left md:text-center">
               {experience.company}
             </h3>
             <div className="flex md:items-center items-start md:gap-5 flex-col md:flex-row gap-2">
-              <p className="text-blue-300 font-semibold">{experience.title}</p>
+              <p className="text-blue-300 font-semibold text-nowrap">
+                {experience.title}
+              </p>
               <span className="text-gray-300 text-sm hidden md:block"> | </span>
-              <p className="text-gray-300 text-sm">{experience.date}</p>
+              <p className="text-gray-300 text-sm text-nowrap">
+                {experience.date}
+              </p>
             </div>
           </div>
 

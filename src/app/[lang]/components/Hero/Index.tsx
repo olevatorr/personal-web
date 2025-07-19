@@ -110,7 +110,7 @@ export default function Hero() {
   }, [])
   return (
     <motion.section
-      className="h-screen flex max-w-7xl mx-auto items-center justify-center relative px-5 sm:px-10"
+      className="h-dvh flex max-w-7xl mx-auto items-center justify-center relative px-5 sm:px-10"
     >
       <motion.div
         className="text-left text-white z-10 w-full"
@@ -183,7 +183,7 @@ export default function Hero() {
               }}
             >
               {hoverItem === 'subtitle' ? (
-                <span className="mb-8 text-gray-300">
+                <span className="mb-8 text-gray-300 text-base md:text-lg lg:text-xl">
                   {t.hero.hoverSubtitle}
                 </span>
               ) : (
@@ -210,7 +210,7 @@ export default function Hero() {
       >
         {/* Coding-style background: angle brackets, code block, and cursor */}
         <motion.div
-          className="absolute top-1/2 right-1/5 flex items-center space-x-2"
+          className="absolute top-[10%] lg:top-1/2 left-10 lg:left-auto lg:right-1/5 flex items-center space-x-2"
           animate={{
             y: [0, -8, 0],
             rotate: [0, 2, -2, 0]
@@ -371,7 +371,7 @@ export default function Hero() {
 
           {/* "" 打字機元素 */}
           <motion.span
-            className="ml-2 bg-white/70 rounded px-2 py-1 font-mono text-base text-purple-700 shadow select-none inline-block"
+            className="ml-2 bg-white/70 rounded px-2 py-1 font-mono text-base text-purple-700 shadow select-none inline-block text-nowrap"
             animate={{
               scale: [1, 1.1, 1],
               backgroundColor: [
@@ -418,205 +418,6 @@ export default function Hero() {
             }}
           />
         </motion.div>
-
-        {/* <motion.div
-          className="absolute top-3/4 left-1/3 -translate-y-1/2 flex items-center"
-          animate={{
-            rotate: [0, 3, -3, 0],
-            y: [0, -12, 0]
-          }}
-          transition={{
-            rotate: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
-            y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }
-          }}
-        >
-          <motion.span
-            className="bg-white/75 rounded px-2 py-1 font-mono text-sm text-black shadow select-none"
-            animate={{
-              scale: [1, 1.15, 1],
-              backgroundColor: [
-                'rgba(255, 255, 255, 0.75)',
-                'rgba(34, 197, 94, 0.9)',
-                'rgba(255, 255, 255, 0.75)'
-              ],
-              color: [
-                'rgba(0, 0, 0, 1)',
-                'rgba(255, 255, 255, 1)',
-                'rgba(0, 0, 0, 1)'
-              ],
-              boxShadow: [
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                '0 8px 15px rgba(34, 197, 94, 0.6), 0 0 25px rgba(34, 197, 94, 0.8)',
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            {'['}
-          </motion.span>
-          <motion.span
-            className="mx-2 bg-white/65 rounded px-2 py-1 font-mono text-xs text-black shadow select-none"
-            animate={{
-              scale: [1, 1.2, 1],
-              backgroundColor: [
-                'rgba(255, 255, 255, 0.65)',
-                'rgba(34, 197, 94, 0.8)',
-                'rgba(255, 255, 255, 0.65)'
-              ],
-              color: [
-                'rgba(0, 0, 0, 1)',
-                'rgba(255, 255, 255, 1)',
-                'rgba(0, 0, 0, 1)'
-              ],
-              boxShadow: [
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                '0 8px 15px rgba(34, 197, 94, 0.6), 0 0 25px rgba(34, 197, 94, 0.8)',
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
-              ]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 2
-            }}
-          >
-            {'frontend'}
-          </motion.span>
-          <AnimatePresence>
-            {showBackend && (
-              <>
-                <motion.span
-                  className="bg-white/60 rounded px-2 py-1 font-mono text-xs text-black shadow select-none"
-                  initial={{ opacity: 0, scale: 0, x: -5 }}
-                  animate={{
-                    opacity: 1,
-                    scale: [0, 0.5, 1],
-                    x: 0,
-                    backgroundColor: [
-                      'rgba(255, 255, 255, 0.6)',
-                      'rgba(147, 51, 234, 0.8)',
-                      'rgba(255, 255, 255, 0.6)'
-                    ],
-                    color: [
-                      'rgba(0, 0, 0, 1)',
-                      'rgba(255, 255, 255, 1)',
-                      'rgba(0, 0, 0, 1)'
-                    ],
-                    boxShadow: [
-                      '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                      '0 8px 15px rgba(239, 68, 68, 0.6), 0 0 25px rgba(239, 68, 68, 0.8)',
-                      '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
-                    ]
-                  }}
-                  transition={{
-                    scale: { duration: 0.6, ease: 'easeOut' },
-                    opacity: { duration: 0.6, ease: 'easeOut' },
-                    x: { duration: 0.6, ease: 'easeOut' },
-                    backgroundColor: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    },
-                    color: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    },
-                    boxShadow: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    }
-                  }}
-                >
-                  {','}
-                </motion.span>
-                <motion.span
-                  className="mx-2 bg-white/60 rounded px-2 py-1 font-mono text-xs text-black shadow select-none"
-                  initial={{ opacity: 0, scale: 0, x: -10 }}
-                  animate={{
-                    opacity: 1,
-                    scale: [0, 1.3, 1],
-                    x: 0,
-                    backgroundColor: [
-                      'rgba(255, 255, 255, 0.6)',
-                      'rgba(239, 68, 68, 0.8)',
-                      'rgba(255, 255, 255, 0.6)'
-                    ],
-                    color: [
-                      'rgba(0, 0, 0, 1)',
-                      'rgba(255, 255, 255, 1)',
-                      'rgba(0, 0, 0, 1)'
-                    ],
-                    boxShadow: [
-                      '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                      '0 8px 15px rgba(239, 68, 68, 0.6), 0 0 25px rgba(239, 68, 68, 0.8)',
-                      '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
-                    ]
-                  }}
-                  transition={{
-                    scale: { duration: 0.6, ease: 'easeOut' },
-                    opacity: { duration: 0.6, ease: 'easeOut' },
-                    x: { duration: 0.6, ease: 'easeOut' },
-                    backgroundColor: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    },
-                    color: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    },
-                    boxShadow: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: 1
-                    }
-                  }}
-                >
-                  {'backend'}
-                </motion.span>
-              </>
-            )}
-          </AnimatePresence>
-          <motion.span
-            className="bg-white/75 rounded px-2 py-1 font-mono text-sm text-black shadow select-none"
-            animate={{
-              scale: [1, 1.15, 1],
-              backgroundColor: [
-                'rgba(255, 255, 255, 0.75)',
-                'rgba(34, 197, 94, 0.9)',
-                'rgba(255, 255, 255, 0.75)'
-              ],
-              color: [
-                'rgba(0, 0, 0, 1)',
-                'rgba(255, 255, 255, 1)',
-                'rgba(0, 0, 0, 1)'
-              ],
-              boxShadow: [
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)',
-                '0 8px 15px rgba(34, 197, 94, 0.6), 0 0 25px rgba(34, 197, 94, 0.8)',
-                '0 4px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)'
-              ]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 0.5
-            }}
-          >
-            {']'}
-          </motion.span>
-        </motion.div> */}
       </motion.div>
     </motion.section>
   )

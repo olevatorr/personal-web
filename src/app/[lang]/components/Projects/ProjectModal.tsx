@@ -15,6 +15,7 @@ import { useTranslation } from '@/app/[lang]/lib/useTranslation'
 import { useParams } from 'next/navigation'
 import { isValidLanguage, defaultLanguage } from '@/app/[lang]/lib/i18n'
 import Image from 'next/image'
+import { getPublicImage } from '@/app/[lang]/lib/utils'
 
 interface ProjectModalProps {
   isOpen: boolean
@@ -158,24 +159,37 @@ export default function ProjectModal({
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl border border-gray-700/50 max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl border border-gray-700/50 max-w-4xl w-full lg:max-h-[90vh] max-h-[90dvh] h-[90dvh] lg:h-[90vh] overflow-hidden"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50 p-6 z-10">
-              <div className="flex items-start justify-between">
-                <div className="flex-1 mr-4">
-                  <motion.h2
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="text-2xl font-bold text-white mb-2"
-                  >
-                    {project.title}
-                  </motion.h2>
-                  <p className="text-gray-400 mb-2">{project.subtitle}</p>
-                  <span className="text-blue-400 font-medium">
-                    {project.year}
-                  </span>
+            <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50 p-4 lg:p-6 z-10">
+              <div className="flex flex-col md:flex-row items-start justify-between">
+                <div className="flex-1 mr-4 w-full">
+                  <div className="flex items-center justify-between w-full">
+                    <motion.h2
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="md:text-2xl text-xl font-bold text-white mb-2"
+                    >
+                      {project.title}
+                    </motion.h2>
+                    {/* Close Button */}
+                    <motion.button
+                      onClick={onClose}
+                      className="text-gray-400 lg:hidden hover:text-white transition-colors p-2 hover:bg-gray-800/50 rounded-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <MdClose className="w-5 h-5" />
+                    </motion.button>
+                  </div>
+                  <div className="flex items-center lg:flex-col lg:items-start justify-between lg:justify-start">
+                    <p className="text-gray-400">{project.subtitle}</p>
+                    <span className="text-blue-400 font-medium text-nowrap">
+                      {project.year}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Right side buttons */}
@@ -185,7 +199,7 @@ export default function ProjectModal({
                     href={project.links.live.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors text-sm"
+                    className="flex items-center gap-2 mt-2 lg:mt-0 px-2.5 py-1.5 border border-blue-500 hover:border-blue-600 text-blue-500 hover:text-blue-600 rounded-md transition-colors text-sm"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -196,7 +210,7 @@ export default function ProjectModal({
                   {/* Close Button */}
                   <motion.button
                     onClick={onClose}
-                    className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800/50 rounded-lg"
+                    className="text-gray-400 hover:text-white hidden lg:block transition-colors p-2 hover:bg-gray-800/50 rounded-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -209,7 +223,7 @@ export default function ProjectModal({
             {/* Scrollable Content */}
             <div
               ref={scrollRef}
-              className="overflow-y-auto max-h-[calc(90vh-120px)] modal-scrollable"
+              className="overflow-y-auto max-h-[calc(90dvh-120px)] lg:max-h-[calc(90vh-120px)] modal-scrollable"
             >
               {/* Cover Image - OG 1200:630 ratio */}
               <div
@@ -217,7 +231,7 @@ export default function ProjectModal({
                 style={{ aspectRatio: '1200/630' }}
               >
                 <Image
-                  src={project.coverImage}
+                  src={getPublicImage(project.coverImage)}
                   alt={project.title}
                   fill
                   className="object-cover"

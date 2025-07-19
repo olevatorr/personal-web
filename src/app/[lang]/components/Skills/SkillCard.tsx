@@ -19,6 +19,7 @@ interface SkillCardProps {
 export default function SkillCard({ skill, index, delay }: SkillCardProps) {
   const IconComponent = getSkillIcon(skill.icon)
   const [isHovered, setIsHovered] = useState(false)
+  const [animationComplete, setAnimationComplete] = useState(false)
 
   const params = useParams()
   const langParam = params.lang as string
@@ -48,52 +49,19 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
 
   // 根據強調等級設定樣式
   const getCardStyles = () => {
-    const baseStyles =
-      'backdrop-blur-sm rounded-lg p-6 transition-all duration-300 relative hover:cursor-pointer'
+    const baseStyles = animationComplete 
+      ? 'rounded-lg p-6 relative transition-all duration-300'
+      : 'rounded-lg p-6 relative'
 
     if (isHighlighted) {
-      return `${baseStyles} bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-400/50 hover:border-purple-400/80 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-blue-500/30 shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105`
+      return `${baseStyles} bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-400/50 hover:border-purple-400/80 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-blue-500/30 shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40${animationComplete ? ' hover:scale-105' : ''}`
     }
 
     if (isSecondaryHighlight) {
-      return `${baseStyles} bg-gradient-to-br from-blue-500/15 to-cyan-500/15 border-2 border-blue-400/40 hover:border-blue-400/70 hover:bg-gradient-to-br hover:from-blue-500/25 hover:to-cyan-500/25 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105`
+      return `${baseStyles} bg-gradient-to-br from-blue-500/15 to-cyan-500/15 border-2 border-blue-400/40 hover:border-blue-400/70 hover:bg-gradient-to-br hover:from-blue-500/25 hover:to-cyan-500/25 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30${animationComplete ? ' hover:scale-105' : ''}`
     }
 
-    return `${baseStyles} bg-white/10 border border-white/20 hover:bg-white/20 hover:scale-105 shadow-md shadow-white/10 hover:shadow-lg`
-  }
-
-  // 根據強調等級設定動畫
-  const getAnimationProps = () => {
-    if (isHighlighted) {
-      return {
-        initial: { opacity: 0, scale: 0.8 },
-        whileInView: { opacity: 1, scale: 1 },
-        transition: {
-          duration: 0.6,
-          delay: delay + index * 0.1
-        }
-      }
-    }
-
-    if (isSecondaryHighlight) {
-      return {
-        initial: { opacity: 0, scale: 0.8 },
-        whileInView: { opacity: 1, scale: 1 },
-        transition: {
-          duration: 0.5,
-          delay: delay + index * 0.1
-        }
-      }
-    }
-
-    return {
-      initial: { opacity: 0, scale: 0.8 },
-      whileInView: { opacity: 1, scale: 1 },
-      transition: {
-        duration: 0.4,
-        delay: delay + index * 0.1
-      }
-    }
+    return `${baseStyles} bg-white/10 border border-white/20 hover:bg-white/20 shadow-md shadow-white/10 hover:shadow-lg${animationComplete ? ' hover:scale-105' : ''}`
   }
 
   // 根據強調等級設定圖示和文字樣式
@@ -129,25 +97,33 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
     return null
   }
 
+
   return (
     <motion.div
-      {...getAnimationProps()}
+      initial={{ opacity: 0, scale: 0.8, rotate: 3 }}
+      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: delay + index * 0.1,
+        ease: [0.4, 0, 0.2, 1] // 使用更高效的 easing
+      }}
       viewport={{ once: true }}
       className={getCardStyles()}
+      style={{ 
+        willChange: animationComplete ? 'auto' : 'opacity, transform',
+        backfaceVisibility: 'hidden',
+        perspective: 1000
+      }}
+      onAnimationComplete={() => setAnimationComplete(true)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* 重要程度標籤 */}
       {getImportanceLabel() && (
-        <div className="absolute top-2 right-2 bg-white/20 backdrop-blur-sm rounded-full px-2 py-px text-xs font-medium text-white border border-white/30 z-10">
+        <div className="absolute top-2 right-2 bg-white/30 rounded-full px-2 py-px text-xs font-medium text-white border border-white/40 z-10">
           {getImportanceLabel()}
         </div>
       )}
-
-      {/* 角落裝飾 */}
-      {/* {isHighlighted && (
-        <div className="absolute top-3 right-3 w-2 h-2 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full animate-pulse"></div>
-      )} */}
 
       <div className="flex flex-col items-center justify-between gap-3 h-full">
         <div
@@ -168,7 +144,7 @@ export default function SkillCard({ skill, index, delay }: SkillCardProps) {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-3 h-1 rounded-sm transition-all duration-300 ${
                   i < getStarRating()
                     ? 'bg-yellow-400 shadow-sm shadow-yellow-400/50'
                     : 'bg-gray-500/50'
